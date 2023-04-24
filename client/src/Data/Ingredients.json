@@ -1,0 +1,22 @@
+[
+    {
+        "name" : "Rice",
+        "quantity" : "1Kg"
+    },
+    {
+        "name" : "Cooking oil",
+        "quantity" : "500ml"
+    },
+    {
+        "name" : "Onion",
+        "quantity" : "1.5Kg"
+    },
+    {
+        "name" : "Mutton",
+        "quantity" : "2Kg"
+    },
+    {
+        "name" : "Yoghurt",
+        "quantity" : "0.5Kg"
+    }
+]

@@ -1,0 +1,125 @@
+[
+    {
+        "category":"veg",
+        "recipes":[
+            {
+                "name":"Veg Pulao",
+                "time":"1 Hour",
+                "difficulty_level":"medium",
+                "recipe":{
+                    "image":"",
+                    "ingredients":{
+        
+                    },
+                    "process":""
+                }
+            },
+            {
+                "name":"Veg Biryani",
+                "time":"1 Hour",
+                "difficulty_level":"medium",
+                "recipe":{
+                    "image":"",
+                    "ingredients":{
+        
+                    },
+                    "process":""
+                }
+            },
+            {
+                "name":"Shahi Paneer",
+                "time":"1 Hour",
+                "difficulty_level":"medium",
+                "recipe":{
+                    "image":"",
+                    "ingredients":{
+        
+                    },
+                    "process":""
+                }
+            }
+        ]
+    },
+    {
+        "category":"non-veg",
+        "recipes":[
+            {
+                "name":"Mutton Biryani",
+                "time":"1 Hour",
+                "difficulty_level":"medium",
+                "recipe":{
+                    "image":"",
+                    "ingredients":{
+        
+                    },
+                    "process":""
+                }
+            },
+            {
+                "name":"Chicken Biryani",
+                "time":"1 Hour",
+                "difficulty_level":"medium",
+                "recipe":{
+                    "image":"",
+                    "ingredients":{
+        
+                    },
+                    "process":""
+                }
+            },
+            {
+                "name":"Haleem",
+                "time":"1 Hour",
+                "difficulty_level":"medium",
+                "recipe":{
+                    "image":"",
+                    "ingredients":{
+        
+                    },
+                    "process":""
+                }
+            }
+        ]
+    },
+    {
+        "category":"snacks",
+        "recipes":[
+            {
+                "name":"Cheese Balls",
+                "time":"1 Hour",
+                "difficulty_level":"medium",
+                "recipe":{
+                    "image":"",
+                    "ingredients":{
+        
+                    },
+                    "process":""
+                }
+            },
+            {
+                "name":"French Fries",
+                "time":"1 Hour",
+                "difficulty_level":"medium",
+                "recipe":{
+                    "image":"",
+                    "ingredients":{
+        
+                    },
+                    "process":""
+                }
+            },
+            {
+                "name":"Samosa",
+                "time":"1 Hour",
+                "difficulty_level":"medium",
+                "recipe":{
+                    "image":"",
+                    "ingredients":{
+        
+                    },
+                    "process":""
+                }
+            }
+        ]
+    }
+]

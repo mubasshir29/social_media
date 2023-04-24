@@ -1,0 +1,35 @@
+[
+    {
+        "step_no" : "1",
+        "action" : "You need to cook the rice until it is 50 percent cooked"
+    },
+    {
+        "step_no" : "2",
+        "action" : "You need to cook the rice until it is 50 percent cooked"
+    },
+    {
+        "step_no" : "3",
+        "action" : "Bring large pot of water to a boil, add salt. Once the water starts to boil, add in drained soaked basmati rice."
+    },
+    {
+        "step_no" : "4",
+        "action" : "Cook for 3 to 4 mins till rice is 50% cooked. Don’t drain it, take it off the heat and immediately start the assembling of biryani"
+    },
+    {
+        "step_no" : "5",
+        "action" : "Take a large pot, You can use any biryani pot or dutch oven. add mutton spread it in the bottom."
+    },
+    {
+        "step_no" : "6",
+        "action" : "Now top with half of the rice, use a slotted spoon to drain the rice from the water and add it directly over the marinated mutton and spread evenly."
+    },
+    {
+        "step_no" : "7",
+        "action" : " Top with half of the fried onions, coriander and mint leaves. Top with more rice and top with fried onions, coriander and mint leaves."
+    },
+    {
+        "step_no" : "8",
+        "action" : "Sprinkle with fried cashews and kishmish. Add extracts over the rice. Pour the saffron milk over it also."
+    }
+    
+]
