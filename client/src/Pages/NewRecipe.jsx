@@ -1,6 +1,20 @@
-import React from 'react'
+import React,{useRef, useState} from 'react'
 import add_image from './../Images/Add_image.png'
+
+
 function NewRecipe() {
+  const [imageFiles,setImageFiles] = useState([])
+  const inputFileRef = useRef(null)
+
+  const handleUploadButton = (e) => {
+    e.preventDefault()
+    inputFileRef.current.click()
+  }
+
+  const handleImageFileChange = (e) => {
+    setImageFiles(e.target.files)
+  }
+
   return (
     <div className='mt-[8vh] sm:mt-[8vh] w-screen sm:w-screen bg-slate-50 py-6'>
         
@@ -8,13 +22,13 @@ function NewRecipe() {
             <h3 className='font-bold text-2xl text-slate-500'>Add Recipe</h3>
             <input type='text' placeholder='Title' className='p-2 rounded-lg '></input>
             <div className='flex w-full gap-3'>
-              <select className='flex-1 p-2 rounded-lg'>
+              <select className='flex-1 p-2 rounded-lg bg-white'>
                 <option value="" disabled selected>Category</option>
                 <option value='non-veg'>Non-Veg</option>
                 <option value='veg'>Veg</option>
                 <option value='snacks'>Snacks</option>
               </select>
-              <select className='flex-1 p-2 rounded-lg'>
+              <select className='flex-1 p-2 rounded-lg bg-white'>
                 <option value="" disabled selected>Difficulty</option>
                 <option value='easy'>Easy</option>
                 <option value='medium'>Medium</option>
@@ -81,10 +95,11 @@ function NewRecipe() {
                 </div>
               </div>
             </div>
+            <input type='file' name='images' ref={inputFileRef} accept="image/png, image/gif, image/jpeg" multiple='multiple' className='hidden' onChange={e => handleImageFileChange(e)} />
             <div className=' flex flex-col gap-2'>
               <h3 className='font-bold text-slate-500'>Gallery</h3>
               <div className='added_images flex'>
-                <div className='relative bg-gray-300 w-28 h-28 flex items-center justify-center' >
+                <div onClick={e => handleUploadButton(e)} className='relative bg-gray-300 w-28 h-28 flex items-center justify-center hover:cursor-pointer' >
                   <p className='absolute top-4 left-9 text-6xl text-gray-500'>+</p>
                 </div>
               </div>
