@@ -1,10 +1,13 @@
 import React,{useRef, useState} from 'react'
 import add_image from './../Images/Add_image.png'
+import { AiOutlineClose } from "react-icons/ai";
+
 
 
 function NewRecipe() {
   const [imageFiles, setImageFiles] = useState([])
   const inputFileRef = useRef(null)
+  let testArray = []
 
   const handleUploadButton = (e) => {
     e.preventDefault()
@@ -14,12 +17,25 @@ function NewRecipe() {
   const handleImageFileChange = (e) => {
     //console.log("ImageFiles:", e.target.files)
 
-    for(let i=0; i<e.target.files.length; i++){
-      
-      setImageFiles([...imageFiles,e.target.files[i]])
-      console.log("Files:", imageFiles)
+    const selectedFiles = Array.from(e.target.files)
+    //console.log("Selected Files", selectedFiles)
+
+    for(let i=0; i<selectedFiles.length; i++){
+      // setImageFiles([...imageFiles, selectedFiles[i]])
+      // console.log("Files:", imageFiles)
+      // console.log("Item in loop",selectedFiles[i])
+      const item = selectedFiles[i]
+      console.log(item)
+      //testArray.push(selectedFiles[i])
+      setImageFiles((prev)=> [...prev, item])
     }
-    console.log("Files: ", imageFiles)
+
+    if(imageFiles){imageFiles.forEach( file => console.log(file))}
+    
+  }
+
+  const deleteItem = (indexValue) =>{
+    setImageFiles( imageFiles.filter((item,index) => index!==indexValue))
   }
 
   return (
@@ -105,17 +121,15 @@ function NewRecipe() {
             <input type='file' name='images' ref={inputFileRef} multiple className='hidden' onChange={e => handleImageFileChange(e)} />
             <div className=' flex flex-col gap-2'>
               <h3 className='font-bold text-slate-500'>Gallery</h3>
-              <div className='added_images flex'>
+              <div className='added_images flex gap-3'>
                 <div onClick={e => handleUploadButton(e)} className='relative bg-gray-300 w-28 h-28 flex items-center justify-center hover:cursor-pointer' >
                   <p className='absolute top-4 left-9 text-6xl text-gray-500'>+</p>
                 </div>
-                {imageFiles && imageFiles.map(imageFile => {
+                {imageFiles.length>0 && imageFiles.map((imageFile,index)=> {
                   return (
-                    <div className='flex gap-6'>
-                      <div>
-                        <img src={URL.createObjectURL(imageFile)} alt={imageFile.name} className='w-28 h-28' />
-                        <h1>Picture</h1>
-                      </div>
+                    <div className='w-28 h-28 group relative'>
+                        <img key={index} src={URL.createObjectURL(imageFile)} alt={imageFile.name} className='w-full h-full object-cover border-2 border-slate-500 rounded-lg' />
+                        <span onClick={()=>deleteItem(index)} className='hidden group-hover:block absolute top-0 left-0 p-7 w-full h-full rounded-lg bg-slate-500/80 text-6xl text-center text-white'><AiOutlineClose/></span>
                     </div>
                   )
                 })}
