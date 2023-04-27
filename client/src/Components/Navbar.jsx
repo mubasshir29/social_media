@@ -18,7 +18,7 @@ function Navbar() {
           <NavLink to='/'>
             <div className='flex gap-2 flex-row items-center justify-start'>
               <img className='w-12 opacity-90' src={logo} />
-              <h1 className='text-2xl font-bold sm:text-3xl sm:font-bold text-slate-600'>PAKWAN-SHALA</h1>
+              <h1 className='text-2xl font-bold sm:text-3xl sm:font-bold text-slate-600'>Kitchen Kreation</h1>
             </div>
           </NavLink>
         </div>

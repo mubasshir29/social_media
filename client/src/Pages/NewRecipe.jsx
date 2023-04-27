@@ -3,7 +3,7 @@ import add_image from './../Images/Add_image.png'
 
 
 function NewRecipe() {
-  const [imageFiles,setImageFiles] = useState([])
+  const [imageFiles, setImageFiles] = useState([])
   const inputFileRef = useRef(null)
 
   const handleUploadButton = (e) => {
@@ -12,7 +12,14 @@ function NewRecipe() {
   }
 
   const handleImageFileChange = (e) => {
-    setImageFiles(e.target.files)
+    //console.log("ImageFiles:", e.target.files)
+
+    for(let i=0; i<e.target.files.length; i++){
+      
+      setImageFiles([...imageFiles,e.target.files[i]])
+      console.log("Files:", imageFiles)
+    }
+    console.log("Files: ", imageFiles)
   }
 
   return (
@@ -95,18 +102,27 @@ function NewRecipe() {
                 </div>
               </div>
             </div>
-            <input type='file' name='images' ref={inputFileRef} accept="image/png, image/gif, image/jpeg" multiple='multiple' className='hidden' onChange={e => handleImageFileChange(e)} />
+            <input type='file' name='images' ref={inputFileRef} multiple className='hidden' onChange={e => handleImageFileChange(e)} />
             <div className=' flex flex-col gap-2'>
               <h3 className='font-bold text-slate-500'>Gallery</h3>
               <div className='added_images flex'>
                 <div onClick={e => handleUploadButton(e)} className='relative bg-gray-300 w-28 h-28 flex items-center justify-center hover:cursor-pointer' >
                   <p className='absolute top-4 left-9 text-6xl text-gray-500'>+</p>
                 </div>
+                {imageFiles && imageFiles.map(imageFile => {
+                  return (
+                    <div className='flex gap-6'>
+                      <div>
+                        <img src={URL.createObjectURL(imageFile)} alt={imageFile.name} className='w-28 h-28' />
+                        <h1>Picture</h1>
+                      </div>
+                    </div>
+                  )
+                })}
               </div>
             </div>
             <button className='bg-blue-500 self-center py-3 px-6 rounded-lg text-white'>Save</button>
           </form>
-        
     </div>
   )
 }
