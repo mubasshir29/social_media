@@ -2,21 +2,37 @@ import mongoose from 'mongoose'
 
 const recipeSchema = new mongoose.Schema(
     {
-        "date" : string,
-        "author" : string,
-        "category" : string,
-        "title" : string,
-        "ingredients" : [{
-            name: string,
-            quantity: string
-        }],
-        "description" : string,
-        "procedure": string,
-        "time_prepare" : string,
-        "time_cook" : string,
-        "difficult_level" : string,
-        "serves" : Number,
-        "image_url" : string
+        title : String,
+        description : String,
+        category : String,
+        difficulty : String,
+        prepareTime : String,
+        cookTime : String,
+        ingredients : [
+            {
+                name: String,
+                quantity: String
+            }
+        ],
+        preparation: [
+            {
+                action: String
+            }
+        ],
+        cooking : [
+            {
+                action: String
+            }
+        ],
+        serves : Number,
+        image_gallery : [
+            {
+                image_url: String
+            }
+        ],
+        createdAt : String,
+        author : String,
+        
     }
 )
 

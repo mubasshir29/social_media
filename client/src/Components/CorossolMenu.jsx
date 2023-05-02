@@ -9,10 +9,10 @@ import image5 from './../Images/fuice_juice_blog_sm.jpg'
 function CorossolMenu() {
   return (
     <div className='w-full sm:w-[68rem] max-w-screen-xl mx-auto flex flex-col gap-4 items-center sm:flex sm:flex-row justify-between '>
-        <CategoryBox category={{image:image1, name: "Non-Veg", path:'/non-veg'}}/>
-        <CategoryBox category={{image:image2, name: "Breakfast", path:'/breakfast'}}/>
-        <CategoryBox category={{image:image3, name: "Snacks", path:'/snacks'}}/>
-        <CategoryBox category={{image:image4, name: "Vegetarian", path:'/veg'}}/>
+        <CategoryBox category={{image:image1, name: "Non-Veg", path:'/recipes/non-veg'}}/>
+        <CategoryBox category={{image:image2, name: "Breakfast", path:'/recipes/breakfast'}}/>
+        <CategoryBox category={{image:image3, name: "Snacks", path:'/recipes/snacks'}}/>
+        <CategoryBox category={{image:image4, name: "Vegetarian", path:'/recipes/veg'}}/>
     </div>
   )
 }

@@ -3,7 +3,9 @@ import dotenv from 'dotenv'
 //import pageRoutes from './Routes/PageRoutes.js'
 import db_connection from './Database/db.js'
 import cors from 'cors'
+import Routes from './Routes/PageRoutes.js'
 const app =express()
+
 
 dotenv.config()
 const PORT = process.env.PORT
@@ -16,7 +18,8 @@ db_connection(db_user,db_passwod)
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded());
-//app.use(pageRoutes)
+app.use(Routes)
+
 
 
 app.listen(PORT, ()=>{

@@ -1,18 +1,19 @@
-import {initializeApp} from 'firebase/app'
-import {getStorage} from 'firebase/storage'
-
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getStorage } from 'firebase/storage'
+// Your web app's Firebase configuration
 const firebaseConfig = {
+  apiKey: "AIzaSyAV6doDJXnaPjDxg-KWeWbWJ8QzeqWgVwA",
+  authDomain: "kitchenkreation-459d8.firebaseapp.com",
+  projectId: "kitchenkreation-459d8",
+  storageBucket: "kitchenkreation-459d8.appspot.com",
+  messagingSenderId: "555885302610",
+  appId: "1:555885302610:web:c92b124abf9deeb88d608b"
+};
 
-    apiKey: process.env.APP_FIREBASE_API_KEY,
-    authDomain: process.env.APP_FIREBASE_AUTH_DOMAIN,
-    projectId: process.env.APP_FIREBASE_PROJECT_ID,
-    storageBucket: process.env.APP_FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: process.env.APP_FIREBASE_MESSAGING_SENDER_ID,
-    appId: process.env.APP_ID
-  };
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
 
-  const app = initializeApp(firebaseConfig)
-  const storage = getStorage(app,APP_FIREBASE_BUCKET_URL)
+const storage = getStorage(app);
 
-  export default storage
-  
+export { storage, app };

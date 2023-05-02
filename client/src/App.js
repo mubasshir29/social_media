@@ -4,7 +4,7 @@ import CorossolMenu from './Components/CorossolMenu';
 import LandingPage from './Pages/LandingPage';
 import Navbar from './Components/Navbar';
 import {Routes, Route} from 'react-router-dom'
-import NonVeg from './Pages/NonVeg';
+import Recipes from './Pages/Recipes';
 import Snacks from './Pages/Snacks'
 import Breakfast from './Pages/Breakfast';
 import RecipePage from './Pages/RecipePage'
@@ -22,11 +22,8 @@ function App() {
       <Navbar/>
       <Routes>
         <Route path='/' element={<LandingPage/>} />
-        <Route path='/non-veg' element={<NonVeg/>} />
-        <Route path='/veg' element={<NonVeg/>} />
-        <Route path='/snacks' element={<Snacks/>} />
-        <Route path='/breakfast' element={<Breakfast/>} />
-        <Route path='/non-veg/:id' element={<RecipePage/>} >
+        <Route path='/recipes/:category' element={<Recipes/>} />
+        <Route path='/recipes/:category/:id' element={<RecipePage/>} >
           <Route index element={<Ingredients/>}/>
           <Route path='ingredients' element={<Ingredients/>} />
           <Route path='cooking' element={<Cooking/>} />
