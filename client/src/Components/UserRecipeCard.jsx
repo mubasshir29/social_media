@@ -3,17 +3,17 @@ import { AiTwotoneLike } from "react-icons/ai";
 import { NavLink, useNavigate } from 'react-router-dom';
 import no_image from './../Images/no_image.jpg'
 import { BsHeart, BsHeartFill, BsBookmark, BsFillBookmarkFill, BsShare, BsShareFill } from "react-icons/bs";
+import { AiOutlineEdit,AiOutlineDelete } from "react-icons/ai";
 
-function RecipeCard({recipe}) {
+function UserRecipeCard({recipe}) {
     const navigate = useNavigate()
     //console.log("In Recipe Page" ,recipe)
     const goToRecipePage = (e)=>{
         navigate('')
     }
   return (
-    
-    <div onClick={(e)=>goToRecipePage} className=' bg-slate-100 min-w-[22rem] min-h-[24rem] max-h-[28rem] w-[22rem] sm:w-[18rem] self-start flex flex-col justify-between  rounded-xl mx-auto drop-shadow-lg group transition duration-200 ease-in-out hover:cursor-pointer'>
-            <NavLink to={`${recipe._id}`}>
+    <NavLink to={`${recipe._id}`}>
+    <div onClick={(e)=>goToRecipePage} className=' bg-slate-100 min-w-[25rem] min-h-[24rem] max-h-[28rem] w-[20rem] sm:w-[18rem] flex flex-col justify-between  rounded-xl mx-auto drop-shadow-lg group transition duration-200 ease-in-out hover:cursor-pointer'>
             <div className='flex-3 w-full h-48 relative rounded-t-xl bg-gradient-to-b from-gray-800/70 via -white  via-gray-700/70 to-gray-900'>
               <img className='w-full h-[12rem] object-cover rounded-t-xl mix-blend-overlay group ' src={recipe.image_gallery[0]?recipe.image_gallery[0].image_url:no_image}/> 
               
@@ -42,15 +42,13 @@ function RecipeCard({recipe}) {
                   <span className='bg-slate-300 px-2 py-1 w-full text-center rounded-full'>{recipe.serves}</span>
                 </div>
               </div>
-              </NavLink>
-              <div className='w-full flex justify-between px-10 py-3'>
-                <span className='flex gap-2 items-center'><BsHeart/><p className='text-sm'>{recipe.likes}</p></span>
-                <span className='flex gap-2 items-center'><BsBookmark/><p className='text-sm'>{recipe.bookmarks}</p></span>
-                <span className='flex gap-2 items-center'><BsShare/><p className='text-sm'>{recipe.shares}</p></span>
+              <div className='w-full flex justify-center text-xl text-slate-700 '>
+                <span className='flex-1 bg-slate-100 flex justify-center py-2 rounded-bl-xl'><AiOutlineEdit/></span>
+                <span className='flex-1 bg-slate-100 flex justify-center py-2 rounded-br-xl'><AiOutlineDelete/></span>
               </div>
           </div>
-          
+          </NavLink>
   )
 }
 
-export default RecipeCard
+export default UserRecipeCard

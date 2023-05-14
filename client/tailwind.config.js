@@ -10,6 +10,9 @@ module.exports = {
       '2xl': '1536px',
       '2xl': '1536px',
     },
+    fontFamily: {
+      decorative: ['Cinzel Decorative', 'cursive']
+    }
     },
     
   },

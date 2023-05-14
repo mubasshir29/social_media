@@ -5,6 +5,7 @@ import ingred_icon from './../Images/ingredient.png'
 import prep_icon from './../Images/cutting-board.png'
 import cook_icon from './../Images/cooking.png'
 import {getSingleRecipe} from './../Utils/api.js'
+import no_image from './../Images/no_image.jpg'
 
 function RecipePage() {
 
@@ -30,28 +31,28 @@ function RecipePage() {
       <div className='mt-[8vh] sm:mt-[8vh] w-[70rem] h-[92vh] sm:w-[70rem] mx-auto p-4'>
         <div className='recipe_page flex gap-4 h-full'>
   
-          <div className='image_description left_side w-[30%] flex flex-col gap-6  bg-slate-100 rounded-xl'>
+          <div className='image_description left_side self-start w-[30%] flex flex-col gap-6 bg-slate-100 rounded-xl'>
             <div className='w-full h-[14rem] relative rounded-t-xl bg-gradient-to-b from-gray-800/70 via -white  via-gray-700/70 to-gray-900'>
-              <img className='w-full h-[14rem] object-cover rounded-t-xl mix-blend-overlay ' src={recipe.image_gallery[0].image_url}/> 
+              <img className='w-full h-[14rem] object-cover rounded-t-xl mix-blend-overlay ' src={recipe.image_gallery[0]?recipe.image_gallery[0].image_url: no_image}/> 
               <div className='absolute bottom-2 left-2 z-10 flex w-[95%] justify-between items-center'>
-                <h1 className=' text-white  text-lg font-bold'>{recipe.title}</h1>
+                <h2 className=' text-white  text-lg font-bold'>{recipe.title}</h2>
               </div>
               </div>
               <div className='recipe_description text-sm p-4'>
                 <p>{recipe.description}</p>
               </div>
-              <div className='recipe_details flex flex-wrap gap-2 text-xs px-4'>
-                <div className='prep_time bg-white py-1 px-1 rounded-xl flex gap-1'>
+              <div className='recipe_details flex flex-wrap gap-2 text-sm px-4'>
+                <div className='prep_time bg-white py-1 px-1.5 rounded-full flex gap-2 items-center'>
                   <span className=''>Prep time</span>
-                  <span className='bg-slate-300 px-2 rounded-xl'>{recipe.prepareTime} mins</span>
+                  <span className='bg-slate-300 px-3 py-1 rounded-xl'>{recipe.prepareTime} mins</span>
                 </div>
-                <div className='cook_time bg-white py-1 px-1 rounded-xl flex gap-1'>
+                <div className='cook_time bg-white py-1 px-1.5 rounded-full flex gap-2 items-center'>
                   <span className=''>Cook time</span>
-                  <span className='bg-slate-300 px-2 rounded-xl'>{recipe.cookTime} mins</span>
+                  <span className='bg-slate-300 px-3 py-1 rounded-xl'>{recipe.cookTime} mins</span>
                 </div>
-                <div className='serve_details bg-white py-1 px-1 rounded-xl flex gap-1'>
+                <div className='serve_details bg-white py-1 px-1.5 rounded-full flex gap-2 items-center'>
                   <span className=''>Serves</span>
-                  <span className='bg-slate-300 px-2 rounded-xl'>{recipe.serves}</span>
+                  <span className='bg-slate-300 px-3 py-1 rounded-xl'>{recipe.serves}</span>
                 </div>
               </div>
             <div>

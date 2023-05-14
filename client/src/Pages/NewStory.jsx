@@ -5,7 +5,8 @@ import { RiImageAddFill } from "react-icons/ri";
 function NewStory() {
   
   return (
-    <div className='mt-[8vh] sm:mt-[8vh] w-screen sm:w-screen bg-slate-50 py-6'>
+    <div className='w-screen h-screen bg-slate-100'>
+    <div className='mt-[4rem] sm:mt-[4rem] w-screen sm:w-screen sm:h-[calc(100% - 4rem)]  py-6'>
         
           <form className='w-full sm:w-[70rem] max-w-screen-xl mx-auto bg-slate-300/30 flex flex-col gap-6 px-10 py-12 rounded-xl'>
             <h3 className='font-bold text-2xl text-slate-500'>Add Story</h3>
@@ -21,6 +22,7 @@ function NewStory() {
             <button className='bg-blue-500 self-center py-3 px-6 rounded-lg text-white'>Save</button>
           </form>
         
+    </div>
     </div>
   )
 }

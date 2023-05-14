@@ -1,3 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base{
+    body {
+        @apply bg-slate-100
+    }
+}
+
+@layer base{
+    h1 {
+        @apply font-decorative
+    }
+}

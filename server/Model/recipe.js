@@ -24,15 +24,20 @@ const recipeSchema = new mongoose.Schema(
                 action: String
             }
         ],
-        serves : Number,
         image_gallery : [
             {
                 image_url: String
             }
         ],
+        serves : Number,
         createdAt : String,
-        author : String,
-        
+        author : {
+            name: String,
+            user_id: String
+        },
+        likes: Number,
+        bookmarks: Number,
+        shares: Number,
     }
 )
 

@@ -1,6 +1,8 @@
 import React,{useRef,useState} from 'react'
 import { RiUploadCloud2Fill } from "react-icons/ri";
 import { IoIosCloseCircle } from "react-icons/io";
+import { RiImageAddFill } from "react-icons/ri";
+
 
 
 
@@ -21,7 +23,8 @@ function NewVideo() {
     setInputFile(null)
   }
   return (
-    <div className='mt-[8vh] sm:mt-[8vh] w-screen sm:w-screen bg-slate-50 py-6'>
+    <div className='w-screen h-screen bg-slate-100'>
+    <div className='mt-[4rem] sm:mt-[4rem] w-screen sm:h-[calc(100% - 4rem)] sm:w-screen py-6'>
         
           <form className='w-full sm:w-[70rem] max-w-screen-xl mx-auto bg-slate-300/30 flex flex-col gap-6 px-10 py-12 rounded-xl'>
             <h3 className='font-bold text-2xl text-slate-500'>Upload Video</h3>
@@ -54,8 +57,8 @@ function NewVideo() {
             <div className=' flex flex-col gap-2'>
               <h3 className='font-bold text-slate-500'>Thumbnail</h3>
               <div className='added_images flex'>
-                <div className='relative bg-gray-300 w-28 h-28 flex items-center justify-center' >
-                  <p className='absolute top-4 left-9 text-6xl text-gray-500'>+</p>
+                <div className='relative bg-white w-28 h-28 flex items-center justify-center rounded-lg' >
+                  <span className='text-6xl text-slate-500/50'><RiImageAddFill/></span>
                 </div>
               </div>
             </div>
@@ -65,6 +68,7 @@ function NewVideo() {
             </div>
           </form>
         
+    </div>
     </div>
   )
 }

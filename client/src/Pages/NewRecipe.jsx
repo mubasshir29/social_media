@@ -6,9 +6,19 @@ import {ref, getDownloadURL, uploadBytesResumable} from 'firebase/storage'
 import {storage } from './../firebase'
 import {postRecipe} from './../Utils/api.js'
 import {useNavigate} from 'react-router-dom'
+import { ThreeCircles } from 'react-loader-spinner'
+import { RiImageAddFill } from "react-icons/ri";
+
+import { useSelector, useDispatch } from 'react-redux';
+
 
 function NewRecipe() {
+
+  const {user_id,username} = useSelector((state) => state.AuthReducer)
+  
+
   const navigate = useNavigate()
+  const [loading, setLoading] = useState(false)
   const date = new Date()
   const defaultRecipe =  {
     title : "",
@@ -23,10 +33,16 @@ function NewRecipe() {
     serves : 0,
     image_gallery : [],
     createdAt : moment(new Date()).format('MMM Do, YYYY'),
-    author : "Mubasshir",
+    author : {
+      name:username,
+      id: user_id
+    },
+    likes: 0,
+    bookmarks: 0,
+    shares: 0,
 }
-const [recipe,setRecipe] = useState(defaultRecipe)
-
+  const [recipe,setRecipe] = useState(defaultRecipe)
+  const [selectedFiles, setSelectedFiles] = useState([])
   const inputFileRef = useRef(null) //for image files
 
   //to store user multiple value inputs before sending to database
@@ -34,6 +50,8 @@ const [recipe,setRecipe] = useState(defaultRecipe)
   const [preparationSteps, setPreparationSteps] = useState([])
   const [cookingSteps, setCookingSteps] = useState([])
   const [imageFiles, setImageFiles] = useState([])
+  const [imageUrls, setImageUrls] = useState([])
+  // let imageUrls = []
 
   ////to store individual value of multi-value inputs
   const [prepStep,setPrepStep] = useState('')
@@ -48,7 +66,10 @@ const [recipe,setRecipe] = useState(defaultRecipe)
     setRecipe( (prev) => ({...prev, [e.target.name] : e.target.value}))
   }
   const ingredientChange = (e) => {
-    setIngredient( (prev) => ({...prev, [e.target.name]:e.target.value}))
+    switch(e.target.name){
+      case 'name':  setIngredient( (prev) => ({...prev, name :e.target.value})); break;
+      case 'quantity': setIngredient( (prev) => ({...prev, quantity :e.target.value})); break; break
+    }
   }
   const onPrepChange = (e) => {
     setPrepStep(e.target.value)
@@ -57,11 +78,9 @@ const [recipe,setRecipe] = useState(defaultRecipe)
     setCookStep(e.target.value)
   }
   const onImageFileChange = (e) => {
-    const selectedFiles = Array.from(e.target.files)
-
-    for(let i=0; i<selectedFiles.length; i++){
-      setImageFiles((prev)=> [...prev, selectedFiles[i]])
-    }
+    const imageList = Array.from(e.target.files)
+    console.log(imageList)
+    setSelectedFiles(imageList)
   }
 
   //Adding ingredient to current ingredient list
@@ -77,7 +96,7 @@ const [recipe,setRecipe] = useState(defaultRecipe)
   //Adding step to current Preparation steps list
   const addPreparation = (e) => {
     e.preventDefault()
-    console.log(prepStep)
+    //console.log(prepStep)
     //setPreparationSteps([...preparationSteps, {action: prepStep}])
     recipe.preparation.push({action: prepStep})
     setPrepStep("")
@@ -89,6 +108,7 @@ const [recipe,setRecipe] = useState(defaultRecipe)
     e.preventDefault()
     // setCookingSteps( (prev) => [...prev, {action: cookStep}])
     recipe.cooking.push({action: cookStep})
+    
     setCookStep("")
     console.log(recipe)
   }
@@ -99,67 +119,82 @@ const [recipe,setRecipe] = useState(defaultRecipe)
   }
 
   const deleteImage = (indexValue) =>{
-    setImageFiles( imageFiles.filter((item,index) => index!==indexValue))
+    setSelectedFiles( selectedFiles.filter((item,index) => index!==indexValue))
   }
 
-  //upload image
-  const uploadImageToFirebase = (file) => {
-    //
-    if (!file) return;
-    const fileImageName = file.name + Date.now()
-    const sotrageRef = ref(storage, `files/${fileImageName}`);
-    const uploadTask = uploadBytesResumable(sotrageRef, file);
 
-    uploadTask.on(
-      "state_changed",
-      (snapshot) => {
-        // const prog = Math.round(
-        //   (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-        // );
-        // setProgress(prog);
-        //console.log(snapshot)
-      },
-      (error) => console.log(error),
-      async () => {
-        const url = await getDownloadURL(uploadTask.snapshot.ref);
-        recipe.image_gallery.push({image_url:url})
-      }
-    );
-  };
+  const uploadToFirebase = () => {
+    setLoading(true)
+    
+    const promises = selectedFiles.map(file => {
+      return new Promise( (resolve) => {
+      const fileImageName = file.name + Date.now()
+      const storageRef = ref(storage, `files/${fileImageName}`);
+      const uploadTask = uploadBytesResumable(storageRef, file);
 
-  const uploadImages = () =>{
-    imageFiles.forEach(file => {
-      uploadImageToFirebase(file)
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          // const prog = Math.round(
+          //   (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          // );
+          // setProgress(prog);
+          console.log(snapshot, Date.now())
+        },
+        (error) => console.log(error),
+        () => {
+          getDownloadURL(uploadTask.snapshot.ref).then(url => {
+            resolve(url)
+            //console.log(url)
+            //setImageUrls((prev) => [...prev, url])
+          });
+        }
+       );
+      })
     })
-    return true
+
+    Promise.all(promises)
+    .then(values => {
+      // console.log(values)
+      // return values
+      console.log(values, Date.now())
+      //setImageUrls((prev) => [...prev, values])
+      //let imageObjects= values.map(value => {image_url: value})
+      //setRecipe({...recipe, image_gallery:[...imageObjects]})
+      values.forEach(value => recipe.image_gallery.push({image_url: value}) )
+      setLoading(false)
+    })
   }
 
+    const uploadImages = e =>{
+      e.preventDefault()
+      uploadToFirebase()
+    }
+
+  //On clicking save button
   const uploadRecipe = async (e) => {
     e.preventDefault()
-
-    //upload images to firebase and get download URL
-    //console.log(imageFiles)
-   
-
-    const response = await uploadImages()
-
-    //set all the fields and send for upload
-    if(response === true){
-      setRecipe( (prev) => ({...prev,  
-        ingredients: ingredientItems.slice(0), 
-        //preparation: preparationSteps.slice(0), 
-        // cooking: cookingSteps.slice(0)
-      }))
-      //console.log(recipe)
-      postRecipe(recipe)
-      navigate(-1)
-    }
-    
+    postRecipe(recipe)
+    navigate('/')
   }
 
   return (
-    <div className='mt-[8vh] sm:mt-[8vh] min-h-[92vh] w-screen sm:w-screen bg-slate-50 py-6'>
-        
+   <div className='w-screen h-screen bg-slate-100'>
+     <div className='mt-[4rem] sm:mt-[4rem] min-h-[92vh] w-screen sm:w-screen sm:h-[calc(100% - 4rem)] py-6'>
+          {loading &&<div className='w-full h-full absolute z-10 top-0 left-0 bg-slate-700/70 flex justify-center items-center'>
+          <ThreeCircles
+                        height="100"
+                        width="100"
+                        color="#ffffff"
+                        wrapperStyle={{}}
+                        wrapperClass=""
+                        visible={true}
+                        ariaLabel="three-circles-rotating"
+                        outerCircleColor=""
+                        innerCircleColor=""
+                        middleCircleColor=""
+                      />
+          </div>}
           <form className='w-full sm:w-[70rem] max-w-screen-xl mx-auto bg-slate-300/30 flex flex-col gap-6 px-10 py-12 rounded-xl'>
             <h3 className='font-bold text-2xl text-slate-500'>Add Recipe</h3>
             {/* Title */}
@@ -181,13 +216,13 @@ const [recipe,setRecipe] = useState(defaultRecipe)
               {/* Difficulty */}
               <select name='difficulty' onChange={e => onValueChange(e)} className='flex-1 p-2 rounded-lg bg-white' defaultValue={'DEFAULT'}>
                 <option value="DEFAULT" disabled >Difficulty</option>
-                <option value='easy'>Easy</option>
-                <option value='medium'>Medium</option>
-                <option value='hard'>Hard</option>
+                <option value='Easy'>Easy</option>
+                <option value='Medium'>Medium</option>
+                <option value='Hard'>Hard</option>
               </select>
 
               {/* Serves */}
-              <input type='text' placeholder='Serves' onChange={e => recipe.serves = e.target.value} className='p-2 rounded-lg bg-white' />
+              <input type='text' name='serves' placeholder='Serves' onChange={e => onValueChange(e)} className='p-2 rounded-lg bg-white' />
             </div>
 
             {/* Preparation and Cooking Time */}
@@ -259,25 +294,33 @@ const [recipe,setRecipe] = useState(defaultRecipe)
             <input type='file' name='images' ref={inputFileRef} multiple className='hidden' onChange={e => onImageFileChange(e)} />
             <div className=' flex flex-col gap-2'>
               <h3 className='font-bold text-slate-500'>Gallery</h3>
-              <div className='added_images flex gap-3'>
-                <div onClick={e => AddImage(e)} className='relative bg-gray-300 w-28 h-28 flex items-center justify-center hover:cursor-pointer' >
-                  <p className='absolute top-4 left-9 text-6xl text-gray-500'>+</p>
-                </div>
-                {imageFiles.length>0 && imageFiles.map((imageFile,index)=> {
+              <div className='added_images flex justify-between gap-2 '>
+                  <div className='added_images flex'>
+                    <div onClick={e => AddImage(e)} className='relative bg-white w-28 h-28 flex items-center justify-center rounded-lg hover:cursor-pointer' >
+                      <span className='text-6xl text-slate-500/50'><RiImageAddFill/></span>
+                    </div>
+                  </div>
+                <div className='flex-1 flex gap-2 flex-wrap overflow-y-auto'>
+                  {selectedFiles && selectedFiles.map((imageFile,index)=> {
                   return (
-                    <div className='w-28 h-28 group relative'>
-                        <img key={index} src={URL.createObjectURL(imageFile)} alt={imageFile.name} className='w-full h-full object-cover border-2 border-slate-500 rounded-lg' />
+                    <div className='w-28 h-28 group relative'  key={index}>
+                        <img src={URL.createObjectURL(imageFile)} alt={imageFile.name} className='w-full h-full object-cover border-2 border-slate-500 rounded-lg' />
                         <span onClick={()=>deleteImage(index)} className='hidden group-hover:block absolute top-0 left-0 p-7 w-full h-full rounded-lg bg-slate-500/80 text-6xl text-center text-white'><AiOutlineClose/></span>
                     </div>
                   )
-                })}
+                  })}
+                </div>
+                
+                <button className='px-4 py-2 bg-blue-500 rounded-lg text-white self-center' onClick={e => uploadImages(e)}>Upload</button>
               </div>
+              
             </div>
 
             {/* Save button */}
             <button className='bg-blue-500 self-center py-3 px-6 rounded-lg text-white' onClick={e => uploadRecipe(e)}>Save</button>
           </form>
     </div>
+   </div>
   )
 }
 
