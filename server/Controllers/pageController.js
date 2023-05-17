@@ -61,7 +61,7 @@ export const getIngredients = async ( req,res) => {
 
 export const getUserRecipes = async (req,res) => {
     try{
-        const myrecipes = await Recipe.find({_id: req.params.userID})
+        const myrecipes = await Recipe.find({"author.user_id" : req.params.userID})
         res.status(200).json(myrecipes)
         //console.log(nonVeg)
     }

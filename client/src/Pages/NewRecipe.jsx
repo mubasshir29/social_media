@@ -15,6 +15,7 @@ import { useSelector, useDispatch } from 'react-redux';
 function NewRecipe() {
 
   const {user_id,username} = useSelector((state) => state.AuthReducer)
+  console.log(user_id, username)
   
 
   const navigate = useNavigate()
@@ -34,8 +35,8 @@ function NewRecipe() {
     image_gallery : [],
     createdAt : moment(new Date()).format('MMM Do, YYYY'),
     author : {
-      name:username,
-      id: user_id
+      name: username,
+      user_id: user_id
     },
     likes: 0,
     bookmarks: 0,

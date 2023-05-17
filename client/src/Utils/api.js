@@ -26,7 +26,7 @@ export const getAllRecipes = async (category)=>{
     }
 }
 
-export const getSingleRecipe = async (id)=>{
+export const getRecipe = async (id)=>{
     try{
         const response = await axios.get(`${server}/recipe/${id}`)
         //console.log(response)
@@ -91,7 +91,7 @@ export const checkLoginStatus = async () => {
                 "x-access-token":localStorage.getItem("token")
             }
         })
-        //console.log("Login Response", loginStatus)
+        console.log("Login Response", loginStatus)
         return loginStatus.data
     }
     catch(error){
