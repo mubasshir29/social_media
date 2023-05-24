@@ -9,7 +9,7 @@ import Snacks from './Pages/Snacks'
 import Breakfast from './Pages/Breakfast';
 import RecipePage from './Pages/RecipePage'
 import NewRecipe from './Pages/NewRecipe';
-import NewStory from './Pages/NewStory';
+import NewChirp from './Components/NewChirp';
 import NewVideo from './Pages/NewVideo';
 import Ingredients from './Pages/Ingredients';
 import Procedure from './Pages/Cooking';
@@ -28,6 +28,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import {checkLoginStatus} from './Utils/api.js'
 import { setLogin } from './Redux/authSlice';
 import { useEffect } from 'react';
+import AllStories from './Pages/AllStories';
+import Sidebar from './Components/Sidebar';
+import NewsFeed from './Pages/NewsFeed';
+import NewChirpPopup from './Components/NewChirpPopup';
+import PixPage from './Pages/PixPage';
+import TapesPage from './Pages/TapesPage';
 
 
 function App() {
@@ -50,29 +56,35 @@ function App() {
   return (
     <div className='bg-white min-h-screen w-screen flex flex-col relative'>
       <Navbar/>
-      <Routes>
-        <Route path='/' element={<LandingPage/>} />
-        <Route path='/signup' element={<Signup/>}/>
-        <Route path='/login' element={<Login/>}/>
-        <Route path='/recipes/:category' element={<Recipes/>} />
-        <Route path='/recipes/:category/:id' element={<RecipePage/>} >
-          <Route index element={<Ingredients/>}/>
-          <Route path='ingredients' element={<Ingredients/>} />
-          <Route path='cooking' element={<Cooking/>} />
-          <Route path='preparation' element={<Preparation/>} />  
-        </Route>
-        <Route path='profile' element={<ProfileSection/>} >
-          <Route path='recipes' element={<MyRecipes/>} />
-          <Route path='stories' element={<MyStories/>} />
-          <Route path='videos' element={<MyVideos/>} />
-          <Route path='liked' element={<MyLiked/>} />
-          <Route path='favorites' element={<MyFavorites/>} />
-          <Route path='info' element={<MyInfo/>} />
-        </Route>
-        <Route path='/new/recipe' element={<NewRecipe/>} />
-        <Route path='/new/story' element={<NewStory/>} />
-        <Route path='/new/video' element={<NewVideo/>} />
-      </Routes>
+      <div className='flex w-[1220px] mx-auto mt-16'>
+        <div className='w-[18%] hidden md:block'>
+          <Sidebar/>
+        </div>
+     
+        <div className='w-[60%]'>
+        <Routes>
+          <Route path='/' element={<AllStories/>} />
+          <Route path='/pix' element={<PixPage/>} />
+          <Route path='/tapes' element={<TapesPage/>} />
+          <Route path='/shorts' element={<AllStories/>}/>
+          <Route path='/signup' element={<Signup/>}/>
+          <Route path='/login' element={<Login/>}/>
+          <Route path='profile' element={<ProfileSection/>} >
+            <Route path='stories' element={<MyStories/>} />
+            <Route path='videos' element={<MyVideos/>} />
+            <Route path='liked' element={<MyLiked/>} />
+            <Route path='favorites' element={<MyFavorites/>} />
+            <Route path='info' element={<MyInfo/>} />
+          </Route>
+          <Route path='/new/chirp' element={<NewChirpPopup/>}/>
+          <Route path='/new/short' element={<NewChirp/>} />
+          <Route path='/new/video' element={<NewVideo/>} />
+        </Routes>
+        </div>
+        <div className='w-[22%] hidden md:block'>
+          <NewsFeed/>
+        </div>
+      </div>
     </div>
   );
 }

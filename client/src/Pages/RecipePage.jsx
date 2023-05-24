@@ -4,7 +4,7 @@ import biryani from './../Images/Hyderabadi-Biryani.jpg'
 import ingred_icon from './../Images/ingredient.png'
 import prep_icon from './../Images/cutting-board.png'
 import cook_icon from './../Images/cooking.png'
-import {getSingleRecipe} from './../Utils/api.js'
+import {getRecipe} from './../Utils/api.js'
 import no_image from './../Images/no_image.jpg'
 
 function RecipePage() {
@@ -17,7 +17,7 @@ function RecipePage() {
   //console.log(location)
 
   const recipeDetails = async () =>{
-    const received = await getSingleRecipe(id)
+    const received = await getRecipe(id)
     console.log(received.data)
     setRecipe(received.data)
   }

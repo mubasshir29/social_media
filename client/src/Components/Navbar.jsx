@@ -5,11 +5,12 @@ import { HiHome } from "react-icons/hi";
 import { RiAccountPinCircleFill } from "react-icons/ri";
 import { IoIosNotifications } from "react-icons/io";
 import { MdAmpStories, MdOutlineVideoCameraFront } from "react-icons/md";
-import { MdOutlineAddCircle } from "react-icons/md";
+import { MdOutlineAddCircle,MdCamera } from "react-icons/md";
 import OutsideClickHandler from  'react-outside-click-handler'
 import { useSelector, useDispatch } from 'react-redux';
 import {checkLoginStatus,getUserDetails} from './../Utils/api.js'
 import { setLogin } from '../Redux/authSlice';
+import { FaUser,FaTape,FaInbox,FaHeart,FaBookmark,FaUserAlt } from "react-icons/fa";
 
 
 function Navbar() {
@@ -56,26 +57,26 @@ function Navbar() {
         <div className='w-full sm:flex-1'>
           <NavLink to='/'>
             <div className='flex gap-2 flex-row items-center justify-start'>
-              <img className='w-12 opacity-100' src={logo} />
+    
               {/* font-family: 'Courgette', cursive; */}
-              <h1 className='text-2xl font-bold sm:text-3xl sm:font-bold text-slate-800 font-Courgette'>Cookpit</h1>
+              <h1 className='text-2xl font-bold sm:text-3xl sm:font-bold text-purple-700 font-Courgette'>Chirpy</h1>
             </div>
           </NavLink>
         </div>
 
         <ul className=' hidden sm:visible flex-1  sm:flex flex-col text-center text-2xl text-slate-400 sm:flex-row justify-center items-center gap-4 sm:gap-6'>
             <li className='border border-slate-400  hover:text-slate-800 hover:border-slate-800 p-2 rounded-xl'><NavLink to='/'><HiHome/></NavLink></li>
-            <li className='border border-slate-400  hover:text-slate-800 hover:border-slate-800 p-2 rounded-xl'><NavLink to='/stories'><MdAmpStories/></NavLink></li>
-            <li className='border border-slate-400  hover:text-slate-800 hover:border-slate-800 p-2 rounded-xl'><NavLink to='/videos'><MdOutlineVideoCameraFront/></NavLink></li>
+            <li className='border border-slate-400  hover:text-slate-800 hover:border-slate-800 p-2 rounded-xl'><NavLink to='/pix'><MdCamera/></NavLink></li>
+            <li className='border border-slate-400  hover:text-slate-800 hover:border-slate-800 p-2 rounded-xl'><NavLink to='/tapes'><FaTape/></NavLink></li>
         </ul>
         <ul className='sm:flex-1 sm:flex text-center text-3xl sm:text-3xl text-slate-500 sm:justify-end sm:items-center sm:gap-4'>
-          <button className='relative group flex items-center gap-2 w-24 text-lg  bg-slate-400  text-white rounded-lg transition duration-200 ease-in-out px-6 py-2  hover:bg-slate-800 '>Post <span><MdOutlineAddCircle/></span>
+          {/* <button className='relative group flex items-center gap-2 w-24 text-lg  bg-slate-400  text-white rounded-lg transition duration-200 ease-in-out px-6 py-2  hover:bg-slate-800 '>Post <span><MdOutlineAddCircle/></span>
           <ul className='absolute hidden group-hover:block w-24 text-slate-400  left-0 top-10 shadow-md'>
             <li className='px-6 py-1 hover:text-white bg-white hover:bg-slate-800 '><NavLink to='/new/recipe'>Recipe</NavLink></li>
             <li className='px-6 py-1 hover:text-white bg-white hover:bg-slate-800 '><NavLink to='/new/story'>Story</NavLink></li>
             <li className='px-6 py-1 hover:text-white bg-white hover:bg-slate-800  '><NavLink to='/new/video'>Video</NavLink></li>
           </ul>
-          </button>
+          </button> */}
           <li className='hidden text-slate-400  sm:block border border-slate-400  hover:text-slate-800 hover:border-slate-800 p-2 rounded-xl'><NavLink><IoIosNotifications/></NavLink></li>
           <li className='relative border text-slate-400  border-slate-400  hover:text-slate-800 hover:border-slate-800 p-2 rounded-xl'>
             
