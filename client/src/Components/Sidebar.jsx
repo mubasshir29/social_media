@@ -17,7 +17,7 @@ function Sidebar() {
         navigate('/new/chirp')
     }
   return (
-    <div className='border-r w-full py-6 px-3'>
+    <div className='border-r w-[220px] py-6 px-3 fixed'>
         <ul className='text-xl flex flex-col gap-2'>
             <li className='flex  items-center  gap-2 p-2 hover:bg-gray-200'><IoHome/> Home</li>
             <li className='flex  items-center  gap-2 p-2 hover:bg-gray-200'><MdCamera/>Pix</li>

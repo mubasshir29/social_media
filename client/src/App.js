@@ -57,7 +57,7 @@ function App() {
     <div className='bg-white min-h-screen w-screen flex flex-col relative'>
       <Navbar/>
       <div className='flex w-[1220px] mx-auto mt-16'>
-        <div className='w-[18%] hidden md:block'>
+        <div className='relative w-[18%] hidden md:block'>
           <Sidebar/>
         </div>
      

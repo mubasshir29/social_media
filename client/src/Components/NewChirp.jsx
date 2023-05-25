@@ -11,7 +11,7 @@ import { CiImageOn } from "react-icons/ci";
 function NewChirp() {
   
   return (
-    <div className='w-full  rounded-xl p-3 flex flex-col gap-2 bg-white'>
+    <div className='w-full rounded-xl p-3 flex flex-col gap-2 bg-white'>
       <div className='flex border-2 border-slate-100 p-3'>
         <img className='self-start w-14 border rounded-full' src={profilePic} />
         <textarea placeholder='Share your story here' className='flex-1 resize-none w-full px-3 text-xl focus:outline-none' rows='3' />

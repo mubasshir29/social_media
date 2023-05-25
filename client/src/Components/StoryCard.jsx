@@ -8,7 +8,7 @@ import { RiShareForward2Line,RiShareForwardLine } from "react-icons/ri";
 function StoryCard({post}) {
     console.log(post)
   return (
-    <div className='border rounded-xl p-6 flex gap-3 bg-white'>
+    <div className='border rounded-xl p-6 flex gap-3 bg-white shadow-md'>
         <div className='w-[15%]'>
             <img  className='w-12 border rounded-full' src={profilePic} />
         </div>

@@ -13,16 +13,18 @@ function PixCard({item}) {
                             </div>
                             
                         </div>
-                        <img className='w-full' src={item.pix_url} />
-                        <div className='flex w-full p-3 justify-between items-center  text-xl text-slate-500'>
-                            <div className='flex gap-4'>
+                        
+                        <div className='relative group w-full justify-between items-center  text-xl text-slate-500'>
+                            <img className='w-full object-cover' src={item.pix_url} />
+                            <div className='hidden group-hover:block absolute z-10 w-full h-full top-0 left-0 bg-gradient-to-r from-gray-900/90  via-gray-700/10 to-gray-900/90'></div>
+                            <div className='hidden z-20 group-hover:flex absolute top-[50%] -translate-y-[50%]  right-6 flex-col gap-4 text-white'>
                                 <span className='flex gap-1 items-center'><FaRegHeart/></span>
                                 <span className='flex gap-1 items-center'><FaRegComment/></span>
                                 <span className='flex items-center'><RiShareForwardLine/></span>
-                            </div>
-                            <span ><FaRegBookmark/></span>
+                                <span ><FaRegBookmark/></span>
+                            </div> 
                         </div>
-                        <div className='px-3 pb-3 flex flex-col gap-1 '>
+                        <div className='p-3 flex flex-col gap-1 '>
                             <p className='text-sm text-gray-700 font-bold'>175 Likes</p>
                             <p className='text-xs text-gray-500'>View all 35 comments</p>
                         </div>
