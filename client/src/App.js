@@ -34,6 +34,7 @@ import NewsFeed from './Pages/NewsFeed';
 import NewChirpPopup from './Components/NewChirpPopup';
 import PixPage from './Pages/PixPage';
 import TapesPage from './Pages/TapesPage';
+import TapeVideoPage from './Pages/TapeVideoPage';
 
 
 function App() {
@@ -66,6 +67,7 @@ function App() {
           <Route path='/' element={<AllStories/>} />
           <Route path='/pix' element={<PixPage/>} />
           <Route path='/tapes' element={<TapesPage/>} />
+          <Route path='/tapes/:id' element={<TapeVideoPage/>}/>
           <Route path='/shorts' element={<AllStories/>}/>
           <Route path='/signup' element={<Signup/>}/>
           <Route path='/login' element={<Login/>}/>

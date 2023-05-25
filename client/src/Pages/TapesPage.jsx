@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactPlayer from 'react-player'
 import tapeData from './../Data/tapeData.json'
+import { NavLink } from 'react-router-dom'
 
 function TapesPage() {
   return (
@@ -10,7 +11,7 @@ function TapesPage() {
       <div id="trending" className='flex flex-col gap-3'>
         <h3 className='font-bold'>Trending</h3>
         <div className='w-full flex border-t-4 py-3 gap-2 overflow-x-auto scrollbar-hide'>
-          {tapeData.map((item,index) =><img className='w-36 rounded-lg' src={item.tape_thumbnail} />)}
+          {tapeData.map((item,index) =><NavLink to={`/tapes/${item._id}`} state={item.tape_url}><img className='w-36 rounded-lg' src={item.tape_thumbnail} /></NavLink>)}
         </div>
       </div>
       <div id="recommended" className='flex flex-col gap-2'>
