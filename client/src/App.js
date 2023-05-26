@@ -55,15 +55,15 @@ function App() {
     loginCheck()
   },[])
   return (
-    <div className='bg-white min-h-screen w-screen flex flex-col relative'>
+    <div className='bg-white min-h-screen w-screen flex flex-col relative p-0 m-0'>
       <Navbar/>
       <div className='flex w-[1220px] mx-auto mt-16'>
-        <div className='relative w-[18%] hidden md:block'>
+        <div className='relative w-[22%] hidden md:block'>
           <Sidebar/>
         </div>
-     
-        <div className='w-[60%]'>
-        <Routes>
+        <div className='w-[56%] '>
+          <div className='w-[86%] mx-auto border border-slate-100 p-3'>
+          <Routes>
           <Route path='/' element={<AllStories/>} />
           <Route path='/pix' element={<PixPage/>} />
           <Route path='/tapes' element={<TapesPage/>} />
@@ -82,6 +82,8 @@ function App() {
           <Route path='/new/short' element={<NewChirp/>} />
           <Route path='/new/video' element={<NewVideo/>} />
         </Routes>
+          </div>
+        
         </div>
         <div className='w-[22%] hidden md:block'>
           <NewsFeed/>

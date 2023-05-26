@@ -17,16 +17,16 @@ function Sidebar() {
         navigate('/new/chirp')
     }
   return (
-    <div className='border-r w-[220px] py-6 px-3 fixed'>
+    <div className='w-[220px] py-6 px-3 fixed '>
         <ul className='text-xl flex flex-col gap-2'>
-            <li className='flex  items-center  gap-2 p-2 hover:bg-gray-200'><IoHome/> Home</li>
-            <li className='flex  items-center  gap-2 p-2 hover:bg-gray-200'><MdCamera/>Pix</li>
-            <li className='flex  items-center  gap-2 p-2 hover:bg-gray-200'><FaTape/>Tapes</li>
-            <li className='flex  items-center  gap-2 p-2 hover:bg-gray-200'><IoMdNotifications/>Notifications</li>
-            <li className='flex  items-center  gap-2 p-2 hover:bg-gray-200'><FaInbox/>Inbox</li>
-            <li className='flex  items-center  gap-2 p-2 hover:bg-gray-200'><FaHeart/>Liked</li>
-            <li className='flex  items-center  gap-2 p-2 hover:bg-gray-200'><FaBookmark/>Bookmarks</li>
-            <li className='flex  items-center  gap-2 p-2 hover:bg-gray-200'><FaUserAlt/>Profile</li>
+            <li className='flex  items-center  gap-2 p-2 hover:bg-gray-200 rounded-full transition ease-in-out'><IoHome/> Home</li>
+            <li className='flex  items-center  gap-2 p-2 hover:bg-gray-200 rounded-full transition ease-in-out'><MdCamera/>Pix</li>
+            <li className='flex  items-center  gap-2 p-2 hover:bg-gray-200 rounded-full transition ease-in-out'><FaTape/>Tapes</li>
+            <li className='flex  items-center  gap-2 p-2 hover:bg-gray-200 rounded-full transition ease-in-out'><IoMdNotifications/>Notifications</li>
+            <li className='flex  items-center  gap-2 p-2 hover:bg-gray-200 rounded-full transition ease-in-out'><FaInbox/>Inbox</li>
+            <li className='flex  items-center  gap-2 p-2 hover:bg-gray-200 rounded-full transition ease-in-out'><FaHeart/>Liked</li>
+            <li className='flex  items-center  gap-2 p-2 hover:bg-gray-200 rounded-full transition ease-in-out'><FaBookmark/>Bookmarks</li>
+            <li className='flex  items-center  gap-2 p-2 hover:bg-gray-200 rounded-full transition ease-in-out'><FaUserAlt/>Profile</li>
             <li><button className='w-full rounded-full bg-purple-700 px-6 py-2 text-white' onClick={showNew}>Chirp</button></li>
         </ul>
     </div>

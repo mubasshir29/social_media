@@ -4,13 +4,13 @@ import allPost from './../Data/stories.json'
 import profilePic from './../Images/man.png'
 import { HiOutlineGif } from "react-icons/hi2";
 import { HiOutlineEmojiHappy } from "react-icons/hi";
-import { BsEmojiSmile, BsCardImage } from "react-icons/bs";
+import { BsEmojiSmile, BsCardImage, BsPlusSquare } from "react-icons/bs";
 import StoryCard from '../Components/StoryCard'
 
 function AllStories() {
   return (
         
-        <div className=' w-[86%] mx-auto p-3 flex flex-col gap-3'>
+        <div className=' w-full mx-auto p-3 flex flex-col gap-3 '>
             <h2 className='text-3xl font-bold'>Stories</h2>
             <div className='w-full rounded-xl p-3 flex flex-col gap-2 bg-white border border-slate-200 shadow-md'>
               <div className='flex  p-3'>
