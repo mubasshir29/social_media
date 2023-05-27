@@ -1,4 +1,3 @@
-
 import './App.css';
 import CorossolMenu from './Components/CorossolMenu';
 import LandingPage from './Pages/LandingPage';
@@ -9,7 +8,7 @@ import Snacks from './Pages/Snacks'
 import Breakfast from './Pages/Breakfast';
 import RecipePage from './Pages/RecipePage'
 import NewRecipe from './Pages/NewRecipe';
-import NewChirp from './Components/NewChirp';
+import NewBuzz from './Components/NewBuzz';
 import NewVideo from './Pages/NewVideo';
 import Ingredients from './Pages/Ingredients';
 import Procedure from './Pages/Cooking';
@@ -31,7 +30,7 @@ import { useEffect } from 'react';
 import AllStories from './Pages/AllStories';
 import Sidebar from './Components/Sidebar';
 import NewsFeed from './Pages/NewsFeed';
-import NewChirpPopup from './Components/NewChirpPopup';
+import NewChirpPopup from './Components/NewBuzzPopup';
 import PixPage from './Pages/PixPage';
 import TapesPage from './Pages/TapesPage';
 import TapeVideoPage from './Pages/TapeVideoPage';
@@ -79,7 +78,7 @@ function App() {
             <Route path='info' element={<MyInfo/>} />
           </Route>
           <Route path='/new/chirp' element={<NewChirpPopup/>}/>
-          <Route path='/new/short' element={<NewChirp/>} />
+          <Route path='/new/short' element={<NewBuzz/>} />
           <Route path='/new/video' element={<NewVideo/>} />
         </Routes>
           </div>

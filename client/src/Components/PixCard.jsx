@@ -4,7 +4,7 @@ import { RiShareForward2Line,RiShareForwardLine } from "react-icons/ri";
 
 function PixCard({item}) {
   return (
-    <div className='flex flex-col w-full border border-slate-300 rounded-xl shadow-md bg-white'>
+    <div className='flex flex-col w-full border border-slate-300 rounded-md shadow-md bg-white'>
                         <div className='p-2 flex items-center gap-2'>
                             <div className='rounded-full w-10 h-10 bg-slate-400'></div>
                             <div className='flex flex-col gap-0 justify-center'>

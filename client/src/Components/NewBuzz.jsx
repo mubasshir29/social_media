@@ -8,7 +8,7 @@ import { BsEmojiSmile, BsCardImage } from "react-icons/bs";
 
 import { CiImageOn } from "react-icons/ci";
 
-function NewChirp() {
+function NewBuzz() {
   
   return (
     <div className='w-full rounded-xl p-3 flex flex-col gap-2 bg-white'>
@@ -31,4 +31,4 @@ function NewChirp() {
   )
 }
 
-export default NewChirp
+export default NewBuzz

@@ -59,7 +59,7 @@ function Navbar() {
             <div className='flex gap-2 flex-row items-center justify-start'>
     
               {/* font-family: 'Courgette', cursive; */}
-              <h1 className='text-2xl font-bold sm:text-3xl sm:font-bold text-indigo-400 font-Courgette'>Chirpy</h1>
+              <h1 className='text-2xl font-bold sm:text-3xl sm:font-bold text-indigo-400 font-Courgette'>Buzzerr</h1>
             </div>
           </NavLink>
         </div>

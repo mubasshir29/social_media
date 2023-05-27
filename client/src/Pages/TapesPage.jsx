@@ -2,6 +2,7 @@ import React from 'react'
 import {BsPlusSquare } from "react-icons/bs";
 import tapeData from './../Data/tapeData.json'
 import { NavLink } from 'react-router-dom'
+import TapeCard from '../Components/TapeCard';
 
 function TapesPage() {
   return (
@@ -14,21 +15,21 @@ function TapesPage() {
 
       <div className='flex flex-col gap-4'>
         <div id="recommended" className='flex flex-col gap-2'>
-          <h3 className='font-bold'>Recommended</h3>
+          <h3 className='font-bold'>Trending</h3>
           <div className='w-full max-w-full flex flex-nowrap border-t-2 py-3 gap-2 overflow-x-auto  scrollbar-hide'>
-            {tapeData.map((item,index) =><div className='w-36 rounded-lg flex-shrink-0'> <NavLink to={`/tapes/${item._id}`} state={item.tape_url}><img className='w-36 rounded-lg'  src={item.tape_thumbnail} /></NavLink></div>)}
+            {tapeData.map((item,index) => <TapeCard key={index} item={item} />)}
           </div>
         </div>
 
         <div id="recommended" className='flex flex-col gap-2'>
           <h3 className='font-bold'>Recommended</h3>
           <div className='w-full flex border-t-2 py-3 gap-2 overflow-x-auto scrollbar-hide'>
-            {tapeData.map((item,index) =><div className='w-36 rounded-lg flex-shrink-0'> <NavLink to={`/tapes/${item._id}`} state={item.tape_url}><img className='w-36 rounded-lg'  src={item.tape_thumbnail} /></NavLink></div>)}
+            {tapeData.map((item,index) =><TapeCard key={index} item={item} />)}
           </div>
         </div>
         <div id="all" className='flex flex-col gap-3'>
           <div className='w-full flex border-t-4 py-3 gap-2 overflow-x-auto scrollbar-hide'>
-            {tapeData.map((item,index) =><div className='w-36 rounded-lg flex-shrink-0'> <NavLink to={`/tapes/${item._id}`} state={item.tape_url}><img className='w-36 rounded-lg'  src={item.tape_thumbnail} /></NavLink></div>)}
+            {tapeData.map((item,index) =><TapeCard key={index} item={item} />)}
           </div>
         </div>
       </div>
