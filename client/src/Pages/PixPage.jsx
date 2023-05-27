@@ -6,7 +6,7 @@ import PixCard from '../Components/PixCard';
 
 function PixPage() {
   return (
-    <div className='p-3 w-[82%] mx-auto'>
+    <div className='p-3 w-full mx-auto'>
         <div className='flex justify-between items-center pr-3'>
             <h2 className='text-4xl font-bold'>Pix</h2>
             <span className='text-xl'><BsPlusSquare/></span>

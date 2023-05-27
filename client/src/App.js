@@ -56,13 +56,13 @@ function App() {
   },[])
   return (
     <div className='bg-white min-h-screen w-screen flex flex-col relative p-0 m-0'>
-      <Navbar/>
+      <span className='z-20'><Navbar/></span>
       <div className='flex w-[1220px] mx-auto mt-16'>
-        <div className='relative w-[22%] hidden md:block'>
+        <div className='relative w-[22%] hidden md:flex justify-end z-10'>
           <Sidebar/>
         </div>
         <div className='w-[56%] '>
-          <div className='w-[86%] mx-auto border border-slate-100 p-3'>
+          <div className='w-[86%] mx-auto bg-slate-50 border border-slate-100 p-3'>
           <Routes>
           <Route path='/' element={<AllStories/>} />
           <Route path='/pix' element={<PixPage/>} />

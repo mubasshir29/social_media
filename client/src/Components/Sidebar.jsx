@@ -17,7 +17,7 @@ function Sidebar() {
         navigate('/new/chirp')
     }
   return (
-    <div className='w-[220px] py-6 px-3 fixed '>
+    <div className='w-[220px] py-6 px-3 fixed min-h-screen bg-white '>
         <ul className='text-xl flex flex-col gap-2'>
             <li className='flex  items-center  gap-2 p-2 hover:bg-gray-200 rounded-full transition ease-in-out'><IoHome/> Home</li>
             <li className='flex  items-center  gap-2 p-2 hover:bg-gray-200 rounded-full transition ease-in-out'><MdCamera/>Pix</li>
@@ -27,7 +27,7 @@ function Sidebar() {
             <li className='flex  items-center  gap-2 p-2 hover:bg-gray-200 rounded-full transition ease-in-out'><FaHeart/>Liked</li>
             <li className='flex  items-center  gap-2 p-2 hover:bg-gray-200 rounded-full transition ease-in-out'><FaBookmark/>Bookmarks</li>
             <li className='flex  items-center  gap-2 p-2 hover:bg-gray-200 rounded-full transition ease-in-out'><FaUserAlt/>Profile</li>
-            <li><button className='w-full rounded-full bg-purple-700 px-6 py-2 text-white' onClick={showNew}>Chirp</button></li>
+            <li><button className='w-full rounded-full bg-indigo-400 px-6 py-2 text-white' onClick={showNew}>Chirp</button></li>
         </ul>
     </div>
   )

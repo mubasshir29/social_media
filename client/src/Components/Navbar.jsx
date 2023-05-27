@@ -59,15 +59,15 @@ function Navbar() {
             <div className='flex gap-2 flex-row items-center justify-start'>
     
               {/* font-family: 'Courgette', cursive; */}
-              <h1 className='text-2xl font-bold sm:text-3xl sm:font-bold text-purple-700 font-Courgette'>Chirpy</h1>
+              <h1 className='text-2xl font-bold sm:text-3xl sm:font-bold text-indigo-400 font-Courgette'>Chirpy</h1>
             </div>
           </NavLink>
         </div>
 
         <ul className=' hidden sm:visible flex-1  sm:flex flex-col text-center text-2xl text-slate-400 sm:flex-row justify-center items-center gap-4 sm:gap-6'>
-            <li className='border border-slate-400  hover:text-slate-800 hover:border-slate-800 p-2 rounded-xl'><NavLink to='/'><HiHome/></NavLink></li>
-            <li className='border border-slate-400  hover:text-slate-800 hover:border-slate-800 p-2 rounded-xl'><NavLink to='/pix'><MdCamera/></NavLink></li>
-            <li className='border border-slate-400  hover:text-slate-800 hover:border-slate-800 p-2 rounded-xl'><NavLink to='/tapes'><FaTape/></NavLink></li>
+            <li className='border-2 border-indigo-400 text-indigo-400 hover:text-indigo-700 hover:border-indigo-700 p-2 rounded-xl'><NavLink to='/'><HiHome/></NavLink></li>
+            <li className='border-2 border-indigo-400 text-indigo-400 hover:text-indigo-700 hover:border-indigo-700 p-2 rounded-xl'><NavLink to='/pix'><MdCamera/></NavLink></li>
+            <li className='border-2 border-indigo-400 text-indigo-400 hover:text-indigo-700 hover:border-indigo-700 p-2 rounded-xl'><NavLink to='/tapes'><FaTape/></NavLink></li>
         </ul>
         <ul className='sm:flex-1 sm:flex text-center text-3xl sm:text-3xl text-slate-500 sm:justify-end sm:items-center sm:gap-4'>
           {/* <button className='relative group flex items-center gap-2 w-24 text-lg  bg-slate-400  text-white rounded-lg transition duration-200 ease-in-out px-6 py-2  hover:bg-slate-800 '>Post <span><MdOutlineAddCircle/></span>
@@ -77,8 +77,8 @@ function Navbar() {
             <li className='px-6 py-1 hover:text-white bg-white hover:bg-slate-800  '><NavLink to='/new/video'>Video</NavLink></li>
           </ul>
           </button> */}
-          <li className='hidden text-slate-400  sm:block border border-slate-400  hover:text-slate-800 hover:border-slate-800 p-2 rounded-xl'><NavLink><IoIosNotifications/></NavLink></li>
-          <li className='relative border text-slate-400  border-slate-400  hover:text-slate-800 hover:border-slate-800 p-2 rounded-xl'>
+          <li className='hidden text-indigo-400  sm:block border-2 border-indigo-400  hover:text-indigo-700 hover:border-indigo-700 p-2 rounded-xl'><NavLink><IoIosNotifications/></NavLink></li>
+          <li className='relative border-2 text-indigo-400 border-indigo-400  hover:text-indigo-700 hover:border-indigo-700 p-2 rounded-xl'>
             
               <button onClick={()=>{setProfileButton(!profileButton)}}><RiAccountPinCircleFill/></button>
             
