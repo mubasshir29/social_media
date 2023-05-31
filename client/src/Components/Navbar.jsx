@@ -17,7 +17,7 @@ function Navbar() {
   //const [loggedStatus, setLoggedStatus] = useState(false)
   const [profileButton, setProfileButton] = useState(false)
 
-  const {loggedStatus, user_id, username} = useSelector((state)=>state.AuthReducer)
+  const {loggedStatus, user_id, username} = useSelector((state)=>state.auth)
   // const username = useSelector((state)=>state.AuthReducer.username)
   const navigate = useNavigate()
 

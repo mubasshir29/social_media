@@ -1,9 +1,9 @@
 import React from 'react'
 
-function MyVideos() {
+function MyTapes() {
   return (
     <div>MyVideos</div>
   )
 }
 
-export default MyVideos
+export default MyTapes

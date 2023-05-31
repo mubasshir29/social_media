@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import NewBuzz from './NewBuzz'
 import { AiOutlineClose } from "react-icons/ai";
-import {showChirp, hideChirp} from '../Redux/ButtonsSlice.js'
+import {showChirp, hideChirp} from '../Redux/buttonsSlice.js'
 import { useNavigate } from 'react-router-dom';
 
 

@@ -76,10 +76,10 @@ const showSuccessToast = ()=>{
   return (
     <div className='w-screen h-screen absolute top-0 left-0 z-10 bg-slate-100 p-8'>
         <div className='flex flex-col gap-8 items-center w-[30rem] mx-auto '>
-            <h1 className='text-5xl'>Cookpit</h1>
+            <h1 className='text-5xl text-indigo-400'>Buzzerr</h1>
             <div className='bg-white shadow-lg rounded-xl flex flex-wrap gap-2 p-1 pb-8'>
                 <div className='title flex-1 flex flex-col items-center p-2'>
-                    <h2 className='text-2xl font-bold'>Create a new account</h2>
+                    <h2 className='text-2xl font-bold '>Create a new account</h2>
                     <p>It's quick and easy</p>
                 </div>
                 <hr className='border-1 w-full' />
@@ -132,10 +132,10 @@ const showSuccessToast = ()=>{
                         </span>
                     </p>
 
-                    <button onClick={(e)=>{handleSignupButton(e)}} className='w-32 px-3 py-2 rounded bg-slate-700 text-white'>Sign Up</button>
+                    <button onClick={(e)=>{handleSignupButton(e)}} className='w-32 px-3 py-2 rounded bg-indigo-400 text-white'>Sign Up</button>
                     
                 </div>
-                <h2 className='w-full text-center text-xl font-bold text-emerald-500'><NavLink to='/login'>Already have an account?</NavLink></h2>
+                <h2 className='w-full text-center text-xl font-bold text-indigo-400'><NavLink to='/login'>Already have an account?</NavLink></h2>
             </div>
         </div>
         <ToastContainer />

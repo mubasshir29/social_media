@@ -16,8 +16,8 @@ import Preparation from './Pages/Preparation';
 import Cooking from './Pages/Cooking';
 import ProfileSection from './Pages/ProfileSection';
 import MyRecipes from './Pages/MyRecipes';
-import MyStories from './Pages/MyStories';
-import MyVideos from './Pages/MyVideos'
+import MyStories from './Pages/MyPosts';
+import MyVideos from './Pages/MyTapes'
 import MyLiked from './Pages/MyLiked';
 import MyFavorites from './Pages/MyFavorites';
 import MyInfo from './Pages/MyInfo';
@@ -34,6 +34,9 @@ import NewChirpPopup from './Components/NewBuzzPopup';
 import PixPage from './Pages/PixPage';
 import TapesPage from './Pages/TapesPage';
 import TapeVideoPage from './Pages/TapeVideoPage';
+import Home from './Pages/Home';
+import MyPix from './Pages/MyPix';
+import EditProfile from './Pages/EditProfile';
 
 
 function App() {
@@ -54,41 +57,31 @@ function App() {
     loginCheck()
   },[])
   return (
-    <div className='bg-white min-h-screen w-screen flex flex-col relative p-0 m-0'>
-      <span className='z-20'><Navbar/></span>
-      <div className='flex w-[1220px] mx-auto mt-16'>
-        <div className='relative w-[22%] hidden md:flex justify-end z-10'>
-          <Sidebar/>
-        </div>
-        <div className='w-[56%] '>
-          <div className='w-[86%] mx-auto bg-slate-50 border border-slate-100 p-3'>
+        <div>
           <Routes>
-          <Route path='/' element={<AllStories/>} />
-          <Route path='/pix' element={<PixPage/>} />
-          <Route path='/tapes' element={<TapesPage/>} />
-          <Route path='/tapes/:id' element={<TapeVideoPage/>}/>
-          <Route path='/shorts' element={<AllStories/>}/>
-          <Route path='/signup' element={<Signup/>}/>
-          <Route path='/login' element={<Login/>}/>
-          <Route path='profile' element={<ProfileSection/>} >
-            <Route path='stories' element={<MyStories/>} />
-            <Route path='videos' element={<MyVideos/>} />
-            <Route path='liked' element={<MyLiked/>} />
-            <Route path='favorites' element={<MyFavorites/>} />
-            <Route path='info' element={<MyInfo/>} />
-          </Route>
-          <Route path='/new/chirp' element={<NewChirpPopup/>}/>
-          <Route path='/new/short' element={<NewBuzz/>} />
-          <Route path='/new/video' element={<NewVideo/>} />
-        </Routes>
-          </div>
-        
+            <Route path='/' element={<Home/>} >
+              <Route path ='/' element={<AllStories/>}/>
+              <Route exact path='/pix' element={<PixPage/>} />
+              <Route exact path='/tapes' element={<TapesPage/>} />
+              <Route exact path='/tapes/:id' element={<TapeVideoPage/>}/>
+              <Route exact path='profile' element={<ProfileSection/>} >
+                <Route exact path='posts' element={<MyStories/>} />
+                <Route exact path='pix' element={<MyPix/>} />
+                <Route exact path='tapes' element={<MyVideos/>} />
+                <Route exact path='liked' element={<MyLiked/>} />
+                <Route exact path='favorites' element={<MyFavorites/>} />
+                <Route exact path='info' element={<MyInfo/>} />
+            </Route>
+            <Route exact path='profile/edit' element={<EditProfile/>} ></Route>
+            </Route>
+            <Route path='/signup' element={<Signup/>}/>
+            <Route path='/login' element={<Login/>}/>
+            
+            <Route path='/new/chirp' element={<NewChirpPopup/>}/>
+            <Route path='/new/short' element={<NewBuzz/>} />
+            <Route path='/new/video' element={<NewVideo/>} />
+          </Routes>
         </div>
-        <div className='w-[22%] hidden md:block'>
-          <NewsFeed/>
-        </div>
-      </div>
-    </div>
   );
 }
 export default App;

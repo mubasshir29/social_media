@@ -16,7 +16,7 @@ function PixCard({item}) {
                         
                         <div className='relative group w-full justify-between items-center  text-xl text-slate-500'>
                             <img className='w-full object-cover' src={item.pix_url} />
-                            <div className='hidden group-hover:block absolute z-10 w-full h-full top-0 left-0 bg-gradient-to-r from-gray-900/90  via-gray-700/10 to-gray-900/90'></div>
+                            <div className='hidden group-hover:block transition duration-700 ease-in-out absolute z-10 w-full h-full top-0 left-0 bg-gradient-to-r from-gray-900/90  via-gray-700/10 to-gray-900/90'></div>
                             <div className='hidden z-20 group-hover:flex absolute top-[50%] -translate-y-[50%]  right-6 flex-col gap-4 text-white'>
                                 <span className='flex gap-1 items-center'><FaRegHeart/></span>
                                 <span className='flex gap-1 items-center'><FaRegComment/></span>

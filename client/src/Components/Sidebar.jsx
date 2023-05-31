@@ -5,12 +5,12 @@ import {MdCamera } from "react-icons/md";
 import { IoHome } from "react-icons/io5";
 import { IoMdNotifications, } from "react-icons/io";
 import { FaTape,FaInbox,FaHeart,FaBookmark,FaUserAlt } from "react-icons/fa";
-import {showChirp, hideChirp} from '../Redux/ButtonsSlice.js'
+import {showChirp, hideChirp} from '../Redux/buttonsSlice.js'
 
 function Sidebar() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const {showNewChirp} = useSelector((state)=>state.buttonsReducer)
+    const {showNewChirp} = useSelector((state)=>state.buttons)
 
     const showNew = ()=>{
         dispatch(showChirp)
@@ -26,7 +26,7 @@ function Sidebar() {
             <li className='flex  items-center  gap-2 p-2 hover:bg-indigo-200 hover:text-indigo-700 rounded-full transition ease-in-out'><FaInbox/>Inbox</li>
             <li className='flex  items-center  gap-2 p-2 hover:bg-indigo-200 hover:text-indigo-700 rounded-full transition ease-in-out'><FaHeart/>Liked</li>
             <li className='flex  items-center  gap-2 p-2 hover:bg-indigo-200 hover:text-indigo-700 rounded-full transition ease-in-out'><FaBookmark/>Bookmarks</li>
-            <li className='flex  items-center  gap-2 p-2 hover:bg-indigo-200 hover:text-indigo-700 rounded-full transition ease-in-out'><FaUserAlt/>Profile</li>
+            <NavLink to='/profile'><li className='flex  items-center  gap-2 p-2 hover:bg-indigo-200 hover:text-indigo-700 rounded-full transition ease-in-out'><FaUserAlt/>Profile</li></NavLink>
             {/* <li><button className='w-full rounded-full bg-indigo-400 px-6 py-2 text-white' onClick={showNew}>Buzzerr</button></li> */}
         </ul>
     </div>

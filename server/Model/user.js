@@ -15,6 +15,9 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    bio : {
+        type: String
+    },
     profile_image:{
         image_url: String
     },
@@ -83,12 +86,6 @@ const userSchema = mongoose.Schema({
                 post_id: String,
         }
     ],
-    my_cart: [
-            {
-                item: String
-            }
-        ]
-
 })
 
 const userModel = mongoose.model("user", userSchema, "User")

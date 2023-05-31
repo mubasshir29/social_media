@@ -1,0 +1,8 @@
+{
+  first_name: 'Buzzerr',
+  last_name: '01',
+  email_mob: 'buzzerr01@gmail.com',
+  password: 'jsttstaa34132-',
+  dob: { day: '29', month: '6', year: '1994' },
+  gender: 'Male'
+}

@@ -2,7 +2,7 @@ import React from 'react'
 
 function NewsCard({post}) {
   return (
-    <div className='bg-slate-50 p-2 border border-slate-200 rounded-md flex flex-col gap-2'>
+    <div className='bg-indigo-50/50 p-2  rounded-md flex flex-col gap-2'>
         <h3 className='text-sm font-bold'>{post.title}</h3>
         <p className='text-xs text-slate-700'>{post.news_content}</p>
         <div className='flex w-full justify-between text-[10px] text-slate-500'>

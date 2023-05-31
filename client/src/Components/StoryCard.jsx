@@ -13,19 +13,19 @@ function StoryCard({post}) {
             <img  className='w-12 border rounded-full' src={profilePic} />
         </div>
         <div className='flex flex-col gap-3'>
-            <div><span className='font-bold'>{post.user.name}</span><span className='text-slate-500'> @{post.user.handle}</span></div>
+            <div><span className='font-bold '>{post.user.name}</span><span className='text-slate-400'> @{post.user.handle}</span></div>
             <div className='flex flex-col gap-3'>
-                <p>{post.post_text}</p>
+                <p className=''>{post.post_text}</p>
                 {post.media.map(item => <img className='rounded-lg border border-slate-300' src={item.url} />)}
             </div>
             <div className='flex justify-between '>
                 
                 <div className='flex gap-6 items-center text-base text-slate-500'>
-                    <span className='flex gap-2 items-center'><FaRegHeart/>{post.likes}</span>
-                    <span className='flex gap-2 items-center'><FaRegComment/>{post.comments.length}</span>
-                    <span className='text-xl'><RiShareForwardLine/></span>
+                    <span className='flex gap-2 items-center '><FaRegHeart/>{post.likes}</span>
+                    <span className='flex gap-2 items-center '><FaRegComment/>{post.comments.length}</span>
+                    <span className='text-xl '><RiShareForwardLine/></span>
                 </div>
-                <span className='text-sm text-slate-500'>{post.time}</span>
+                <span className='text-sm text-slate-400'>{post.time}</span>
             </div>
         </div>
     </div>
