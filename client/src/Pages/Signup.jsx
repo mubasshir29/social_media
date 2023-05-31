@@ -21,10 +21,17 @@ function Signup() {
     const defaultSignup = {
         first_name:"",
         last_name:"",
-        email_mob: "",   
-        password:"",
+        user_handle:"",
+        bio : "",
+        profile_image:{
+            image_url: ""
+        },
+        email: "",
+        password: "",
         dob: birthday,
-        gender: ""
+        gender: "",
+        address: "",
+        joined:"",
     }
     
     const [newUser,setNewUser]=useState(defaultSignup)
@@ -86,7 +93,7 @@ const showSuccessToast = ()=>{
                 <div className='form  flex flex-wrap gap-3 justify-center border-slate-400 p-3'>
                     <input name='first_name' onChange={(e)=>valueChange(e)}className='w-[48%] border border-1 border-slate-300 rounded px-2 py-2' placeholder='First name' />
                     <input name='last_name' onChange={(e)=>valueChange(e)}className='w-[48%] border border-1 border-slate-300 rounded px-2 py-2' placeholder='Last name' />
-                    <input name='email_mob' onChange={(e)=>valueChange(e)}className='w-full border border-1 border-slate-300 rounded px-2 py-2' placeholder='Mobile number or email' />
+                    <input name='email_mob' onChange={(e)=>valueChange(e)}className='w-full border border-1 border-slate-300 rounded px-2 py-2' placeholder='Email' />
                     <input name='password' type='password' onChange={(e)=>valueChange(e)}className='w-full border border-1 border-slate-300 rounded px-2 py-2' placeholder='Password' />
                     <div className='dob w-full flex flex-col gap-2'>
                     <p className='text-slate-500 text-sm' >Birthday</p>
@@ -108,21 +115,6 @@ const showSuccessToast = ()=>{
                             </select>
                             
                         </div>
-                    </div>
-                    <div className='flex-1 gender flex flex-col gap-1 w-full'>
-                        <p className='text-slate-500 text-sm' >Gender</p>
-                        <div className='flex gap-3 items-center w-full'>
-                            <div class="flex items-center">
-                                <input id="male" type="radio" value="Male" name="gender" onChange={(e)=>valueChange(e)} class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
-                                <label for="default-radio-1" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Male</label>
-                            </div>
-                            <div class="flex items-center">
-                                <input id="female" type="radio" value="Female" name="gender" onChange={(e)=>valueChange(e)} class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
-                                <label for="default-radio-2" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Female</label>
-                            </div>
-                        </div>
-
-                        
                     </div>
 
                     <p className='text-xs flex flex-col gap-2 text-gray-500 my-3'>

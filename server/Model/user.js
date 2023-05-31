@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const dobSchema = mongoose.Schema({
+const dateSchema = mongoose.Schema({
     day: String,
     month: String,
     year: String
@@ -15,15 +15,23 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    user_handle:{
+        type: String,
+        required: true
+    },
     bio : {
         type: String
     },
     profile_image:{
         image_url: String
     },
-    email_mob: {
+    email: {
         type: String,
         required: true,
+        unique: true
+    },
+    mobile: {
+        type: String,
         unique: true
     },
     password: {
@@ -31,57 +39,63 @@ const userSchema = mongoose.Schema({
         required: true
     },
     dob: {
-        type: dobSchema,
+        type: dateSchema,
         required: true
     },
     gender: {
         type: String,
         required: true
     },
+    address: {
+        type: String,
+    },
+    joined:{
+        type: dateSchema
+    },
     token:{
         type: String
     },
-    my_recipes : [
+    my_posts : [
         {
                 post_id: String,
         }
     ],
-    my_stories : [
+    my_pix_ids : [
         {
                 post_id: String,
         }
     ],
-    my_videos : [
+    my_tapes_ids : [
         {
                 post_id: String,
         }
     ],
-    liked_recipes : [
+    liked_post_ids : [
         {
                 post_id: String,
         }
     ],
-    liked_stories : [
+    liked_pix_ids : [
         {
                 post_id: String,
         }
     ],
-    liked_videos : [
+    liked_tapes_ids : [
         {
                 post_id: String,
         }
     ],
-    saved_recipes : [
+    saved_posts_ids : [
         {
                 post_id: String,
         }
     ],
-    saved_stories : [
+    saved_pix_ids : [
         {
                 post_id: String,
         }
     ],
-    saved_videos : [
+    saved_tape_ids : [
         {
                 post_id: String,
         }
